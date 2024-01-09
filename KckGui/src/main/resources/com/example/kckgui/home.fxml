@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.SVGPath?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="556.0" prefWidth="900.0" styleClass="app" stylesheets="@style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.kckgui.Controller">
+   <children>
+      <AnchorPane fx:id="contentArea" layoutX="240.0" prefHeight="556.0" prefWidth="660.0" style="-fx-background-color: #fff;">
+         <children>
+            <ImageView fx:id="exit" fitHeight="29.0" fitWidth="28.0" layoutX="618.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../images/icons8-close-32.png" />
+               </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </ImageView>
+            <ImageView fx:id="minimize" fitHeight="25.0" fitWidth="22.0" layoutX="590.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../images/icons8-minimize-24.png" />
+               </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </ImageView>
+         </children></AnchorPane>
+      <AnchorPane prefHeight="556.0" prefWidth="240.0" style="-fx-background-color: #F8F6F5; -fx-border-color: #dbdbdb; -fx-border-width: 0 1 0 0;">
+         <children>
+            <SVGPath content="M 219 397 C 113 555 159 342 52 474 C -1 481 67 537 0 538 L 3 555 L 220 556 " fill="#fba650" layoutX="19.0" layoutY="1.0" translateY="1.0" />
+            <SVGPath content="M 220 333 C 195 315 159 342 176 393 C 199 454 111 398 157 511 L 163 533 L 103 555 L 220 556 " fill="#fd7e50" layoutX="19.0" layoutY="1.0" translateY="1.0" />
+            <SVGPath content="M -1 417 C 113 406 72 475 144 499 C 213 511 188 555 181 556 L 0 556 " fill="#893976" layoutX="-1.0" translateX="1.0" translateY="2.0" />
+            <SVGPath content="M -1 437 C 56 425 52 506 136 515 C 181 517 172 555 171 556 L 0 556 " fill="#712b5f" strokeWidth="0.0" translateY="2.0" />
+            <VBox layoutX="10.0" layoutY="70.0" prefHeight="242.0" prefWidth="220.0" spacing="10.0">
+               <children>
+                  <Button fx:id="tasksButton" mnemonicParsing="false" onAction="#loadTasksView" prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: transparent; -fx-alignment: LEFT;" styleClass="sidebarItem" text="ZADANIA" textAlignment="CENTER" textFill="#9e629d" translateX="-2.0">
+                     <font>
+                        <Font name="Franklin Gothic Medium" size="16.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <graphic>
+                        <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true" translateX="-2.0">
+                           <image>
+                              <Image url="@../../../images/icons8-task-48.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <VBox.margin>
+                        <Insets left="15.0" />
+                     </VBox.margin>
+                  </Button>
+                  <Button fx:id="productsButton" mnemonicParsing="false" onAction="#loadProductsView" prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: transparent; -fx-alignment: LEFT;" styleClass="sidebarItem" text="PRODUKTY" textFill="#9e629d" translateX="-2.0">
+                     <font>
+                        <Font name="Franklin Gothic Medium" size="16.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <graphic>
+                        <ImageView id="icon2" fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true" translateX="-3.0">
+                           <image>
+                              <Image url="@../../../images/icons8-ingredients-48.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <VBox.margin>
+                        <Insets left="15.0" />
+                     </VBox.margin>
+                  </Button>
+                  <Button fx:id="shoppingButton" mnemonicParsing="false" onAction="#loadShoppingView" prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: transparent; -fx-alignment: LEFT;" styleClass="sidebarItem" text="LISTA ZAKUPÓW" textAlignment="CENTER" textFill="#9e629d" translateX="-10.0" wrapText="true">
+                     <font>
+                        <Font name="Franklin Gothic Medium" size="16.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <graphic>
+                        <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true" translateX="1.0">
+                           <image>
+                              <Image url="@../../../images/icons8-cart-64.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <VBox.margin>
+                        <Insets left="15.0" />
+                     </VBox.margin>
+                  </Button>
+               </children>
+            </VBox>
+            <Label layoutX="72.0" layoutY="18.0" text="TASK" textFill="#712b5f" translateX="-4.0" translateY="5.0">
+               <font>
+                  <Font name="Franklin Gothic Medium" size="18.0" />
+               </font>
+            </Label>
+            <Circle fx:id="avatar" fill="DODGERBLUE" layoutX="120.0" layoutY="320.0" radius="48.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
+            <Label layoutX="106.0" layoutY="368.0" text="Witaj" textFill="#fba650">
+               <font>
+                  <Font name="Franklin Gothic Medium" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="108.0" layoutY="18.0" text="TRACK" textFill="#fd7e50">
+               <font>
+                  <Font name="Franklin Gothic Medium" size="24.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

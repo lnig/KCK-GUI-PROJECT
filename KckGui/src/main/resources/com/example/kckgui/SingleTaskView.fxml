@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.effect.Light.Distant?>
+<?import javafx.scene.effect.Lighting?>
+<?import javafx.scene.effect.Shadow?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+
+<VBox maxHeight="100.0" maxWidth="250.0" minHeight="100.0" minWidth="250.0" onMousePressed="#select" prefHeight="100.0" prefWidth="250.0" style="-fx-background-color: #fff; -fx-background-radius: 0 5 5 0; -fx-border-color: #727EF1; -fx-border-width: 0 0 0 3;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.kckgui.taskViewController">
+   <children>
+      <Label fx:id="taskTitle" contentDisplay="CENTER" prefHeight="20.0" prefWidth="190.0" text="Send out newsletter" textAlignment="CENTER" textFill="#727ef1">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+         <VBox.margin>
+            <Insets left="10.0" top="7.0" />
+         </VBox.margin>
+      </Label>
+      <Label fx:id="taskDescritpion" prefHeight="69.0" prefWidth="230.0" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nec enim vel ipsum mattis finibus vitae" textFill="#909090" wrapText="true">
+         <VBox.margin>
+            <Insets left="10.0" />
+         </VBox.margin>
+         <font>
+            <Font name="Franklin Gothic Medium" size="12.0" />
+         </font>
+      </Label>
+      <HBox prefHeight="40.0" prefWidth="198.0" spacing="10.0">
+         <children>
+            <Label fx:id="taskPriority" alignment="CENTER" prefHeight="20.0" prefWidth="90.0" styleClass="buttons" stylesheets="@style.css" text="Priority" textFill="#f2fdff">
+               <HBox.margin>
+                  <Insets left="10.0" top="1.0" />
+               </HBox.margin>
+               <effect>
+                  <DropShadow>
+                     <color>
+                        <Color red="0.8157894611358643" green="0.8157894611358643" blue="0.8157894611358643" />
+                     </color>
+                     <input>
+                        <Lighting diffuseConstant="1.3">
+                           <bumpInput>
+                              <Shadow />
+                           </bumpInput>
+                           <light>
+                              <Light.Distant />
+                           </light>
+                        </Lighting>
+                     </input>
+                  </DropShadow>
+               </effect>
+               <font>
+                  <Font name="Franklin Gothic Medium" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="taskMember" alignment="CENTER_RIGHT" prefHeight="20.0" prefWidth="132.0" text="Member" wrapText="true">
+               <graphic>
+                  <Circle fx:id="avatar" fill="DODGERBLUE" radius="8.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
+               </graphic>
+               <HBox.margin>
+                  <Insets right="5.0" top="1.0" />
+               </HBox.margin>
+            </Label>
+         </children>
+         <VBox.margin>
+            <Insets bottom="5.0" />
+         </VBox.margin>
+      </HBox>
+   </children>
+   <effect>
+      <DropShadow>
+         <color>
+            <Color red="0.7799999713897705" green="0.7799999713897705" blue="0.7799999713897705" opacity="0.8893129825592041" />
+         </color>
+      </DropShadow>
+   </effect>
+</VBox>
