@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
+
+<VBox maxHeight="271.0" maxWidth="183.0" minHeight="243.0" minWidth="183.0" prefHeight="243.0" prefWidth="183.0" style="-fx-background-color: #fff; -fx-background-radius: 0 5 5 0; -fx-border-color: lightgray; -fx-border-width: 1;" styleClass="productVBox" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.kckgui.SingleProductInShoppingView">
+   <children>
+      <ImageView fitHeight="179.0" fitWidth="181.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../images/Sandy_F&amp;D-04_Single-02.jpg" />
+         </image>
+      </ImageView>
+      <HBox prefHeight="27.0" prefWidth="206.0" spacing="10.0">
+         <children>
+            <Label fx:id="productName" contentDisplay="CENTER" prefHeight="27.0" prefWidth="103.0" styleClass="taskTitle" stylesheets="@style.css" text="Chleb" textAlignment="CENTER" textFill="#2f2f2f">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+               <padding>
+                  <Insets left="15.0" />
+               </padding>
+            </Label>
+            <Label fx:id="productPrice" alignment="CENTER_RIGHT" prefHeight="31.0" prefWidth="103.0" text="4.99$" textFill="#727ef1">
+               <HBox.margin>
+                  <Insets left="10.0" top="1.0" />
+               </HBox.margin>
+               <font>
+                  <Font name="Franklin Gothic Medium" size="16.0" />
+               </font>
+               <padding>
+                  <Insets right="15.0" />
+               </padding>
+            </Label>
+         </children>
+         <VBox.margin>
+            <Insets bottom="5.0" />
+         </VBox.margin>
+      </HBox>
+      <Label alignment="CENTER" prefHeight="20.0" prefWidth="156.0" text="Ilość do kupienia">
+         <font>
+            <Font size="14.0" />
+         </font>
+         <VBox.margin>
+            <Insets left="10.0" right="10.0" />
+         </VBox.margin>
+      </Label>
+      <Label fx:id="productAmount" alignment="CENTER" layoutX="21.0" layoutY="212.0" prefHeight="20.0" prefWidth="183.0" text="5">
+         <font>
+            <Font size="14.0" />
+         </font>
+         <VBox.margin>
+            <Insets />
+         </VBox.margin>
+         <padding>
+            <Insets left="10.0" right="10.0" />
+         </padding>
+      </Label>
+   </children>
+   <effect>
+      <DropShadow>
+         <color>
+            <Color red="0.7799999713897705" green="0.7799999713897705" blue="0.7799999713897705" opacity="0.8893129825592041" />
+         </color>
+      </DropShadow>
+   </effect>
+</VBox>

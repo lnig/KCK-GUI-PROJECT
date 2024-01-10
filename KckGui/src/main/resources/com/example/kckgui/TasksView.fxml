@@ -26,13 +26,13 @@
 
 <AnchorPane fx:id="contentArea" prefHeight="556.0" prefWidth="660.0" style="-fx-background-color: #fff;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.kckgui.Tasks">
     <children>
-      <TabPane fx:id="tabPane" prefHeight="556.0" prefWidth="660.0" side="BOTTOM" style="-fx-background-color: #F5F5F5;" styleClass="tabPane" tabClosingPolicy="UNAVAILABLE">
+      <TabPane fx:id="tabPane" prefHeight="561.0" prefWidth="660.0" side="BOTTOM" style="-fx-background-color: #F5F5F5;" styleClass="tabPane" tabClosingPolicy="UNAVAILABLE">
         <tabs>
-          <Tab text="Zadania">
+          <Tab closable="false" text="Zadania">
             <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="476.0" prefWidth="660.0" style="-fx-background-color: #fff;">
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="531.0" prefWidth="660.0" style="-fx-background-color: #fff;">
                      <children>
-                        <ImageView fx:id="exit" fitHeight="29.0" fitWidth="28.0" layoutX="618.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="exit" fitHeight="29.0" fitWidth="28.0" layoutX="618.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true" y="-6.0">
                            <image>
                               <Image url="@../../../images/icons8-close-32.png" />
                            </image>
@@ -40,9 +40,9 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </ImageView>
-                        <HBox layoutY="16.0" prefHeight="510.0" prefWidth="536.0" spacing="20.0" AnchorPane.leftAnchor="40.0">
+                        <HBox layoutY="16.0" prefHeight="452.0" prefWidth="580.0" spacing="20.0" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0">
                            <children>
-                              <VBox prefHeight="494.0" prefWidth="279.0" spacing="10.0">
+                              <VBox prefHeight="494.0" prefWidth="280.0" spacing="10.0">
                                  <children>
                                     <Label text="DO ZROBIENIA" textAlignment="CENTER" textFill="#9e629d">
                                        <font>
@@ -60,7 +60,7 @@
                                           <Insets left="6.0" />
                                        </VBox.margin>
                                     </Button>
-                                    <ScrollPane hbarPolicy="NEVER" prefHeight="454.0" prefWidth="279.0" style="-fx-background-color: transparent;" stylesheets="@style.css" vbarPolicy="NEVER">
+                                    <ScrollPane hbarPolicy="NEVER" prefHeight="382.0" prefWidth="275.0" style="-fx-background-color: transparent;" stylesheets="@style.css" vbarPolicy="NEVER">
                                        <content>
                                           <GridPane fx:id="taskToDoController" prefHeight="0.0" prefWidth="0.0" style="-fx-background-color: #fff;">
                                             <columnConstraints>
@@ -78,7 +78,7 @@
                                     </DropShadow>
                                  </effect>
                               </VBox>
-                              <VBox prefHeight="494.0" prefWidth="279.0" spacing="10.0">
+                              <VBox prefHeight="494.0" prefWidth="290.0" spacing="10.0">
                                  <children>
                                     <Label text="W TRAKCIE" textAlignment="CENTER" textFill="#9e629d">
                                        <font>
@@ -96,7 +96,7 @@
                                           <Insets left="6.0" />
                                        </VBox.margin>
                                     </Button>
-                                    <ScrollPane hbarPolicy="NEVER" prefHeight="454.0" prefWidth="279.0" style="-fx-background-color: transparent;" stylesheets="@style.css" vbarPolicy="NEVER">
+                                    <ScrollPane hbarPolicy="NEVER" prefHeight="392.0" prefWidth="262.0" style="-fx-background-color: transparent;" stylesheets="@style.css" vbarPolicy="NEVER">
                                        <content>
                                           <GridPane fx:id="taskInProgressController" prefHeight="0.0" prefWidth="0.0" style="-fx-background-color: #fff;">
                                              <columnConstraints>
@@ -116,7 +116,7 @@
                               </VBox>
                            </children>
                         </HBox>
-                        <ImageView fx:id="minimize" fitHeight="25.0" fitWidth="22.0" layoutX="590.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="minimize" fitHeight="25.0" fitWidth="22.0" layoutX="590.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true" y="-6.0">
                            <image>
                               <Image url="@../../../images/icons8-minimize-24.png" />
                            </image>
@@ -129,15 +129,129 @@
                               <ButtonType fx:constant="OK" />
                            </buttonTypes>
                         </DialogPane>
-                        <Button layoutX="592.0" layoutY="229.0" mnemonicParsing="false" onAction="#removeTask" text="Remove" />
-                        <Button layoutX="592.0" layoutY="259.0" mnemonicParsing="false" onAction="#editTask" prefHeight="25.0" prefWidth="60.0" text="Edit" />
+                        <HBox alignment="CENTER" layoutY="467.0" prefHeight="60.0" prefWidth="660.0" spacing="60.0">
+                           <children>
+                              <Button mnemonicParsing="false" onAction="#editTask" prefHeight="37.0" prefWidth="114.0" styleClass="buttonTest" stylesheets="@style.css" text="Edytuj" textFill="#93447b">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                                 <graphic>
+                                    <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../../images/icons8-edit-48.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                              <Button mnemonicParsing="false" onAction="#removeTask" prefHeight="37.0" prefWidth="114.0" styleClass="buttonTest" stylesheets="@style.css" text="Usun" textFill="#93447b">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                                 <graphic>
+                                    <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../../images/icons8-remove-48%20(2).png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                              <Button mnemonicParsing="false" onAction="#changeStatus" prefHeight="38.0" prefWidth="137.0" styleClass="buttonTest" stylesheets="@style.css" text="Zmien status" textFill="#93447b">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                                 <graphic>
+                                    <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../../images/icons8-data-transfer-50%20(1).png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                           </children>
+                        </HBox>
                      </children></AnchorPane>
             </content>
           </Tab>
-          <Tab fx:id="tabDoneTasks" text="Wykonane Zadania">
+          <Tab fx:id="tabDoneTasks" closable="false" text="Wykonane Zadania">
             <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: white;">
                      <children>
+                        <Label fx:id="errorMsgChangeStatus" alignment="CENTER" layoutX="226.0" layoutY="510.0" prefHeight="17.0" prefWidth="200.0" textFill="#ff3a3a" AnchorPane.leftAnchor="230.0" AnchorPane.rightAnchor="230.0">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <HBox alignment="CENTER" layoutY="467.0" prefHeight="60.0" prefWidth="660.0" spacing="60.0">
+                           <children>
+                              <Button mnemonicParsing="false" onAction="#editTask" prefHeight="37.0" prefWidth="114.0" styleClass="buttonTest" stylesheets="@style.css" text="Edytuj" textFill="#93447b">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                                 <graphic>
+                                    <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../../images/icons8-edit-48.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                              <Button mnemonicParsing="false" onAction="#removeTask" prefHeight="37.0" prefWidth="114.0" styleClass="buttonTest" stylesheets="@style.css" text="Usun" textFill="#93447b">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                                 <graphic>
+                                    <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../../images/icons8-remove-48%20(2).png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                           </children>
+                        </HBox>
+                        <HBox layoutY="16.0" prefHeight="452.0" prefWidth="580.0" spacing="20.0" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="40.0">
+                           <children>
+                              <VBox prefHeight="452.0" prefWidth="581.0" spacing="10.0">
+                                 <children>
+                                    <Label prefHeight="19.0" prefWidth="105.0" styleClass="taskDone" text="WYKONANE" textAlignment="CENTER" textFill="#9e629d">
+                                       <font>
+                                          <Font name="Franklin Gothic Medium" size="16.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets left="237.5" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <Button alignment="BOTTOM_LEFT" mnemonicParsing="false" onAction="#createDoneTask" prefWidth="250.0" style="-fx-background-color: #F9F7F6; -fx-background-radius: 5; -fx-border-color: #dbdbdb; -fx-border-width: 1; -fx-border-radius: 5;" text="Dodaj nowe zadanie" textFill="#b0b0b0eb">
+                                       <font>
+                                          <Font name="Franklin Gothic Medium" size="16.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets left="165.0" right="165.0" />
+                                       </VBox.margin>
+                                    </Button>
+                                    <ScrollPane hbarPolicy="NEVER" prefHeight="382.0" prefWidth="275.0" style="-fx-background-color: transparent;" stylesheets="@style.css" vbarPolicy="NEVER">
+                                       <content>
+                                          <GridPane fx:id="taskDoneController" alignment="CENTER" maxHeight="0.0" prefHeight="0.0" prefWidth="0.0" translateY="-10.0">
+                                            <rowConstraints>
+                                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                            </rowConstraints>
+                                             <padding>
+                                                <Insets bottom="-10.0" />
+                                             </padding>
+                                          </GridPane>
+                                       </content>
+                                    </ScrollPane>
+                                 </children>
+                                 <effect>
+                                    <DropShadow>
+                                       <color>
+                                          <Color red="1.0" green="1.0" blue="1.0" />
+                                       </color>
+                                    </DropShadow>
+                                 </effect>
+                              </VBox>
+                           </children>
+                        </HBox>
                         <ImageView fx:id="minimizeTabDoneTask" fitHeight="25.0" fitWidth="22.0" layoutX="590.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../../../images/icons8-minimize-24.png" />
@@ -154,42 +268,6 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </ImageView>
-                        <VBox prefHeight="494.0" prefWidth="559.0" spacing="10.0">
-                           <children>
-                              <Label text="DO ZROBIENIA" textAlignment="CENTER" textFill="#9e629d">
-                                 <font>
-                                    <Font name="Franklin Gothic Medium" size="16.0" />
-                                 </font>
-                                 <VBox.margin>
-                                    <Insets left="6.0" />
-                                 </VBox.margin>
-                              </Label>
-                              <Button fx:id="toDoCreateButton1" alignment="BOTTOM_LEFT" mnemonicParsing="false" onAction="#createToDoTask" prefWidth="250.0" style="-fx-background-color: #F9F7F6; -fx-background-radius: 5; -fx-border-color: #dbdbdb; -fx-border-width: 1; -fx-border-radius: 5;" text="Dodaj nowe zadanie" textFill="#b0b0b0eb">
-                                 <font>
-                                    <Font name="Franklin Gothic Medium" size="16.0" />
-                                 </font>
-                                 <VBox.margin>
-                                    <Insets left="6.0" />
-                                 </VBox.margin>
-                              </Button>
-                              <ScrollPane hbarPolicy="NEVER" prefHeight="424.0" prefWidth="314.0" style="-fx-background-color: transparent;" stylesheets="@style.css" vbarPolicy="NEVER">
-                                 <content>
-                                    <GridPane fx:id="taskDoneController" alignment="CENTER">
-                                      <rowConstraints>
-                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                      </rowConstraints>
-                                    </GridPane>
-                                 </content>
-                              </ScrollPane>
-                           </children>
-                           <effect>
-                              <DropShadow>
-                                 <color>
-                                    <Color red="1.0" green="1.0" blue="1.0" />
-                                 </color>
-                              </DropShadow>
-                           </effect>
-                        </VBox>
                      </children></AnchorPane>
             </content>
           </Tab>

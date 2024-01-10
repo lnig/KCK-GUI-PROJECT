@@ -47,4 +47,9 @@ public class Product {
         this.pPrice = pPrice;
         this.pMeasureType = pMeasureType;
     }
+
+    @Override
+    public String toString() {
+        return pName + "     " + pPrice + "$";
+    }
 }

@@ -27,4 +27,9 @@ public class Shopping {
     public void setAmount(int amount) {
         this.amount = amount;
     }
+
+    @Override
+    public String toString() {
+        return product.getName() + " " + product.getPrice() +  "$ " + amount;
+    }
 }

@@ -81,17 +81,6 @@ public class Products implements Initializable {
         pMeasureType.setCellValueFactory(new PropertyValueFactory<>("measureType"));
 
         tableView.setPlaceholder(new Label("No items to display."));
-
-//        products.add(new Product("Chleb", "Zywnosc", 2.1, measureType.SZT));
-//        products.add(new Product("Mleko", "Nabial", 3.5, measureType.SZT));
-//        products.add(new Product("Jogurt", "Nabial", 2.0, measureType.SZT));
-//        products.add(new Product("Jajka", "Nabial", 5.99, measureType.SZT));
-//        products.add(new Product("Ryż", "Produkty zbożowe", 7.5, measureType.KG));
-//        products.add(new Product("Marchewka", "Warzywa", 1.8, measureType.KG));
-//        products.add(new Product("Pomarańcze", "Owoce", 4.99, measureType.KG));
-//        products.add(new Product("Woda mineralna", "Napoje", 2.49, measureType.SZT));
-//        products.add(new Product("Szynka", "Wędlina", 15.99, measureType.KG));
-//        products.add(new Product("Papier toaletowy", "Artykuły gospodarstwa domowego", 3.79, measureType.SZT));
         selectMeasureType.getItems().addAll(measureType.values());
 
         tableView.getItems().setAll(products);
@@ -101,7 +90,7 @@ public class Products implements Initializable {
                 textFieldName.setText(newValue.getName());
                 textFieldCategory.setText(newValue.getCategory());
                 textFieldPrice.setText(String.valueOf(newValue.getPrice()));
-                selectMeasureType.setValue(newValue.getMeasureType());
+//                selectMeasureType.setValue(newValue.getMeasureType());
             }
         });
 
@@ -116,20 +105,17 @@ public class Products implements Initializable {
         textFieldName.clear();
         textFieldCategory.clear();
         textFieldPrice.clear();
+        selectMeasureType.clear();
         textFieldName.requestFocus();
         textFieldCategory.requestFocus();
         textFieldPrice.requestFocus();
-        selectMeasureType.setValue(null);
-        content.setOnMouseClicked(mouseEvent -> {
-            tableView.getSelectionModel().clearSelection();
-            clearFields();
-            content.requestFocus();
-        });
+        selectMeasureType.requestFocus();
+        content.requestFocus();
     }
 
 
 
-    public void buttonAdd(ActionEvent actionEvent) {
+    public void buttonAdd(ActionEvent actionEvent) throws InterruptedException {
 
         double price = 0;
         String name = "", category = "", priceString = "";
@@ -150,13 +136,15 @@ public class Products implements Initializable {
 
         } catch (NumberFormatException e) {
             e.printStackTrace();
-            errorMsg.setText("Invalid price format");
+            errorMsg.setText("Nie prawidlowy format ceny");
             return;
         }
 
         if (name.isEmpty() || category.isEmpty() || priceString.isEmpty() || measureType == null) {
-            errorMsg.setText("Fill in all fields");
+            errorMsg.setText("Wypelnij wszystkie pola");
             return;
+        }else {
+            errorMsg.setText("");
         }
 
 
@@ -203,6 +191,7 @@ public class Products implements Initializable {
 
             product.setMeasureType(selectMeasureType.getValue());
             tableView.refresh();
+            clearFields();
         }
 
     }

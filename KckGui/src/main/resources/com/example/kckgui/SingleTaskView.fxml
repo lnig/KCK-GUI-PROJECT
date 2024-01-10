@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.String?>
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.effect.Light.Distant?>
@@ -14,7 +16,7 @@
 
 <VBox maxHeight="100.0" maxWidth="250.0" minHeight="100.0" minWidth="250.0" onMousePressed="#select" prefHeight="100.0" prefWidth="250.0" style="-fx-background-color: #fff; -fx-background-radius: 0 5 5 0; -fx-border-color: #727EF1; -fx-border-width: 0 0 0 3;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.kckgui.taskViewController">
    <children>
-      <Label fx:id="taskTitle" contentDisplay="CENTER" prefHeight="20.0" prefWidth="190.0" text="Send out newsletter" textAlignment="CENTER" textFill="#727ef1">
+      <Label fx:id="taskTitle" contentDisplay="CENTER" prefHeight="20.0" prefWidth="190.0" styleClass="taskTitle" stylesheets="@style.css" text="Send out newsletter" textAlignment="CENTER" textFill="#727ef1">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
@@ -32,7 +34,7 @@
       </Label>
       <HBox prefHeight="40.0" prefWidth="198.0" spacing="10.0">
          <children>
-            <Label fx:id="taskPriority" alignment="CENTER" prefHeight="20.0" prefWidth="90.0" styleClass="buttons" stylesheets="@style.css" text="Priority" textFill="#f2fdff">
+            <Label fx:id="taskPriority" alignment="CENTER" prefHeight="20.0" prefWidth="90.0" stylesheets="@style.css" text="Priority" textFill="#f2fdff">
                <HBox.margin>
                   <Insets left="10.0" top="1.0" />
                </HBox.margin>
@@ -56,10 +58,14 @@
                <font>
                   <Font name="Franklin Gothic Medium" size="12.0" />
                </font>
+               <styleClass>
+                  <String fx:value="buttons" />
+                  <String fx:value="taskPriority" />
+               </styleClass>
             </Label>
             <Label fx:id="taskMember" alignment="CENTER_RIGHT" prefHeight="20.0" prefWidth="132.0" text="Member" wrapText="true">
                <graphic>
-                  <Circle fx:id="avatar" fill="DODGERBLUE" radius="8.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
+                  <Circle fx:id="avatar" fill="DODGERBLUE" radius="8.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" styleClass="avatarImg" />
                </graphic>
                <HBox.margin>
                   <Insets right="5.0" top="1.0" />
@@ -78,4 +84,7 @@
          </color>
       </DropShadow>
    </effect>
+   <cursor>
+      <Cursor fx:constant="HAND" />
+   </cursor>
 </VBox>

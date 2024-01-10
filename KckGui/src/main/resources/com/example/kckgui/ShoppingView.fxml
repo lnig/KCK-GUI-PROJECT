@@ -1,32 +1,80 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import io.github.palexdev.materialfx.controls.MFXNotificationCenter?>
-<?import io.github.palexdev.materialfx.controls.MFXRadioButton?>
-<?import io.github.palexdev.materialfx.controls.MFXRectangleToggleNode?>
-<?import io.github.palexdev.materialfx.controls.MFXScrollPane?>
-<?import io.github.palexdev.materialfx.controls.MFXSpinner?>
-<?import io.github.palexdev.materialfx.controls.MFXStepper?>
-<?import io.github.palexdev.virtualizedfx.controls.VirtualScrollPane?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.effect.Light.Distant?>
-<?import javafx.scene.effect.Lighting?>
-<?import javafx.scene.effect.Shadow?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="contentArea" prefHeight="556.0" prefWidth="660.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.kckgui.Shopping">
+<AnchorPane fx:id="contentArea" prefHeight="556.0" prefWidth="660.0" style="-fx-background-color: #fff;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.kckgui.Shoppings">
     <children>
-      <ImageView fx:id="minimize" fitHeight="25.0" fitWidth="22.0" layoutX="590.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../../images/icons8-minimize-24.png" />
-         </image>
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-      </ImageView>
+      <HBox layoutY="24.0" prefHeight="532.0" prefWidth="660.0" spacing="20.0">
+         <children>
+            <VBox prefHeight="532.0" prefWidth="202.0" spacing="15.0">
+               <children>
+                  <Label text="TWOJE PRODUKTY" textFill="#9e629d">
+                     <font>
+                        <Font name="Franklin Gothic Medium" size="16.0" />
+                     </font>
+                  </Label>
+                  <ListView fx:id="listViewProducts" prefHeight="415.0" prefWidth="209.0" style="-fx-background-color: transparent;">
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                  </ListView>
+                  <Button mnemonicParsing="false" onAction="#buttonAdd" prefHeight="29.0" prefWidth="202.0" styleClass="buttonTest" stylesheets="@style.css" text="Dodaj produkt do listy" textFill="#93447b">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../images/icons8-add-48%20(1).png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+               </children>
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin>
+            </VBox>
+            <VBox prefHeight="532.0" prefWidth="405.0" spacing="15.0" style="-fx-background-color: #fff;">
+               <children>
+                  <Label text="LISTA ZAKUPOW" textFill="#9e629d">
+                     <font>
+                        <Font name="Franklin Gothic Medium" size="16.0" />
+                     </font>
+                  </Label>
+                  <ScrollPane prefHeight="415.0" prefWidth="400.0" style="-fx-background-color: transparent;" stylesheets="@style.css">
+                     <content>
+                        <GridPane fx:id="gridPane" prefHeight="0.0" prefWidth="0.0" style="-fx-background-color: white;" translateY="-10.0">
+                          <rowConstraints>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                        </GridPane>
+                     </content>
+                  </ScrollPane>
+               </children>
+            </VBox>
+         </children>
+         <padding>
+            <Insets left="10.0" />
+         </padding>
+      </HBox>
+      <Label fx:id="productsPriceSum" layoutX="340.0" layoutY="493.0" text="Suma produktow na liscie:">
+         <font>
+            <Font name="Franklin Gothic Medium" size="14.0" />
+         </font></Label>
       <ImageView fx:id="exit" fitHeight="29.0" fitWidth="28.0" layoutX="618.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../images/icons8-close-32.png" />
@@ -35,40 +83,13 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </ImageView>
-      <Button layoutX="367.0" layoutY="495.0" mnemonicParsing="false" onAction="#buttonAdd" prefHeight="34.0" prefWidth="125.0" styleClass="buttons" stylesheets="@style.css" text="Stworz liste" textAlignment="CENTER" textFill="#f2fdff">
-         <graphic>
-            <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../../images/icons8-add-30.png" />
-               </image>
-            </ImageView>
-         </graphic>
-         <font>
-            <Font name="System Bold" size="14.0" />
-         </font>
+      <ImageView fx:id="minimize" fitHeight="25.0" fitWidth="22.0" layoutX="590.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../images/icons8-minimize-24.png" />
+         </image>
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
-         <effect>
-            <Lighting diffuseConstant="1.3">
-               <bumpInput>
-                  <Shadow />
-               </bumpInput>
-               <light>
-                  <Light.Distant />
-               </light>
-            </Lighting>
-         </effect>
-      </Button>
-      <MFXNotificationCenter layoutX="55.0" layoutY="89.0" prefHeight="28.0" prefWidth="35.0" />
-      <MFXRadioButton layoutX="161.0" layoutY="118.0" />
-      <MFXRectangleToggleNode layoutX="151.0" layoutY="89.0" text="Toggle" />
-      <MFXScrollPane layoutX="111.0" layoutY="268.0" prefHeight="150.0" prefWidth="125.0" thumbColor="#da2a2a" thumbHoverColor="#5a28bf" trackColor="#4bd00d">
-         <content>
-            <VirtualScrollPane prefHeight="336.0" prefWidth="100.0" />
-         </content>
-      </MFXScrollPane>
-      <MFXSpinner layoutX="64.0" layoutY="184.0" />
-      <MFXStepper layoutX="349.0" layoutY="89.0" />
+      </ImageView>
     </children>
 </AnchorPane>

@@ -4,11 +4,13 @@ import com.example.kckgui.Model.Class.Task;
 import com.example.kckgui.Model.Class.familyMember;
 import com.example.kckgui.Model.Type.priorityType;
 import com.example.kckgui.Model.Type.statusType;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
+import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.effect.GaussianBlur;
 import javafx.scene.image.ImageView;
@@ -19,8 +21,11 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Observable;
 import java.util.ResourceBundle;
 
+import static com.example.kckgui.HelloApplication.getMembers;
 import static com.example.kckgui.HelloApplication.getTasks;
 
 
@@ -34,7 +39,6 @@ public class Tasks implements Initializable {
     private ImageView exitTabDoneTask;
     @FXML
     private ImageView minimizeTabDoneTask;
-
     @FXML
     private GridPane taskToDoController;
     @FXML
@@ -65,6 +69,8 @@ public class Tasks implements Initializable {
     private Label errorMsg;
     @FXML
     private TabPane tabPane;
+    @FXML
+    private Label errorMsgChangeStatus;
     @FXML
     private Tab tabDoneTasks;
 //    private List<Task> tasks;
@@ -99,11 +105,10 @@ public class Tasks implements Initializable {
 
         priorityChoose.getItems().addAll(priorityType.values());
         priorityChoose.setValue(priorityType.SREDNI);
-        memberChoose.getItems().addAll(new familyMember("S"), new familyMember("D"), new familyMember("A"));
-
+        memberChoose.getItems().addAll(getMembers());
         priorityChooseEdit.getItems().addAll(priorityType.values());
         priorityChooseEdit.setValue(priorityType.SREDNI);
-        memberChooseEdit.getItems().addAll(new familyMember("S"), new familyMember("D"), new familyMember("A"));
+        memberChooseEdit.getItems().addAll(getMembers());
 
         try {
             for (Task t: tasks1) {
@@ -113,6 +118,7 @@ public class Tasks implements Initializable {
                 taskBox.setId("task" + ++id);
                 taskViewController taskViewController = fxmlLoader.getController();
                 taskViewController.setData(t);
+
 
                 switch (t.getStatus()){
                     case DO_ZROBIENIA -> {
@@ -140,6 +146,7 @@ public class Tasks implements Initializable {
                         }
                         taskDoneController.add(taskBox, columnD++, rowD);
                         GridPane.setMargin(taskBox, new Insets(5, 5, 5, 5));
+                        taskDoneController.setHgap(35);
                     }
                 }
 
@@ -184,7 +191,6 @@ public class Tasks implements Initializable {
 //        list.add(task10);
 
 //        return list;
-
     }
     public void createToDoTask(ActionEvent actionEvent) {
 
@@ -199,6 +205,12 @@ public class Tasks implements Initializable {
         taskType = 2;
 
     }
+    public void createDoneTask(ActionEvent actionEvent) {
+        dialogAdd.setVisible(true);
+        tabPane.setEffect(new GaussianBlur(10));
+        taskType = 3;
+    }
+
     public void addTask(ActionEvent actionEvent) {
 
         String title = "", description= "";
@@ -234,13 +246,30 @@ public class Tasks implements Initializable {
                 ++row;
             }
 
+            if (columnD == 2){
+                columnD = 0;
+                ++rowD;
+            }
+            switch (taskType){
+                case 1 ->{
+                    task = new Task(id, title, description, priorityType, statusType.DO_ZROBIENIA, familyMember);
+                    taskToDoController.add(taskBox, column++, row);
+                }
+                case 2 ->{
+                    task = new Task(id, title, description, priorityType, statusType.W_TOKU, familyMember);
+                    taskInProgressController.add(taskBox, column++, row);
+                }
+                case 3->{
+                    task = new Task(id, title, description, priorityType, statusType.WYKONANE, familyMember);
+                    taskDoneController.add(taskBox, columnD++, rowD);
+                }
+            }
             if (taskType == 1){
-                task = new Task(id, title, description, priorityType, statusType.DO_ZROBIENIA, familyMember);
-                taskToDoController.add(taskBox, column++, row);
+
             } else if (taskType == 2) {
                 task = new Task(id, title, description, priorityType, statusType.W_TOKU, familyMember);
                 taskInProgressController.add(taskBox, column++, row);
-            }
+            }else
             taskViewController.setData(task);
             GridPane.setMargin(taskBox, new Insets(5, 5, 5, 5));
         } catch (IOException e) {
@@ -359,6 +388,22 @@ public class Tasks implements Initializable {
 
         dialogEdit.setVisible(false);
         tabPane.setEffect(new GaussianBlur(0));
+
+    }
+
+    public void changeStatus(ActionEvent actionEvent) {
+
+        Task task = tasks1.get(taskViewController.taskID() - 1);
+        System.out.println(task.getTitle() + " " + task.getDescription() + task.getStatus());
+        if (task.getStatus() == statusType.DO_ZROBIENIA){
+            task.setStatus(statusType.W_TOKU);
+        }else if (task.getStatus() == statusType.W_TOKU){
+            task.setStatus(statusType.WYKONANE);
+        }else {
+            errorMsg.setText("Nie mozesz tego zrobic");
+        }
+
+        refresh();
 
     }
 }

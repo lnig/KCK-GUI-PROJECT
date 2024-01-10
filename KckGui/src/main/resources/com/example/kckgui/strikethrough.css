@@ -1,0 +1,7 @@
+.taskTitle .text {
+    -fx-strikethrough: true;
+}
+
+.taskPriority{
+    -fx-background-color: red;
+}

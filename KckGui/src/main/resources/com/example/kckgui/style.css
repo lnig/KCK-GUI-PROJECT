@@ -115,7 +115,14 @@
     -fx-background-color: transparent;
 }
 
+.scroll-pane-focused .scroll-pane {
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
 
+mfx-progress-bar{
+    -fx-accent: red;
+}
 
 .menu-side{
     -fx-background-color: #9e629d;;
@@ -150,9 +157,9 @@
     -fx-background-color: #712B5F;
 }
 
-.avatar{
-    -fx-fill: url('images/icons8-add-30.png');
-}
+/*.avatar{*/
+/*    -fx-fill: url('images/icons8-add-30.png');*/
+/*}*/
 
 .scroll-pane {
     -fx-background: #FFFFFF;
@@ -160,21 +167,76 @@
 }
 
 .tab-pane {
-    -fx-background-color: transparent;
+    -fx-background-color: white;
 }
 
 .tab-pane .tab-header-area {
-    -fx-background-color: transparent;
+    -fx-background-color: white;
 }
 
 .tab-pane .tab-header-background {
-    -fx-background-color: transparent;
+    -fx-background-color: white;
 }
 
-.mfx-text-field .floating-text{
-    /*-fx-background-color: #fd7e50;*/
+.tab{
+    -fx-background-color: white;
+    -fx-border-radius: 0 0 5 5;
+    -fx-border-color: black;
+    -fx-border-width: 0 1 1 1;
+    -fx-translate-y: -5;
+    -fx-padding: 5;
 }
 
+.tab:hover{
+    -fx-stroke: none;
+    -fx-border-color: red;
+}
+
+.tab .button:focused{
+    -fx-background-color: red;
+}
+
+.buttonTest{
+    -fx-background-color: white;
+    -fx-background-radius: 10;
+    -fx-border-color: #93447b;
+    -fx-border-radius:  10;
+    -fx-border-width: 2;
+    -fx-stroke: none;
+}
+
+
+.buttonTest:hover{
+    -fx-cursor: HAND;
+    -fx-border-radius:  10;
+    -fx-background-radius: 10;
+    -fx-scale-x: 1.05;
+    -fx-scale-y: 1.05;
+}
+
+.productVBox{
+    -fx-background-color: red;
+}
+
+/*.spinner .increment-arrow-button,*/
+/*.spinner .decrement-arrow-button {*/
+/*    -fx-body-color: yellow;*/
+/*    -fx-padding: 10 10 10 10;*/
+/*}*/
+
+/*.spinner .increment-arrow-button:hover,*/
+/*.spinner .decrement-arrow-button:hover {*/
+/*    !* interpolate color between yellow and red based on first color brightness *!*/
+/*    -fx-body-color: ladder(#444, yellow 0%, red 100%);*/
+/*}*/
+
+/*.spinner .increment-arrow-button:hover:pressed,*/
+/*.spinner .decrement-arrow-button:hover:pressed,*/
+/*.spinner .increment-arrow-button:pressed,*/
+/*.spinner .decrement-arrow-button:pressed {*/
+/*    !* interpolate color between yellow and red based on first color brightness *!*/
+/*    -fx-body-color: ladder(#AAA, yellow 0%, red 100%);*/
+/*}*/
 
 /*colors {*/
 /*    -fx-background-color: #712B5F;*/
