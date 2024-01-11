@@ -302,10 +302,10 @@
                   </Label>
                   <ComboBox fx:id="memberChoose" maxWidth="220.0" minWidth="220.0" prefWidth="220.0" styleClass="user-input" stylesheets="@style.css" />
                   <Label fx:id="errorMsg" />
-                  <HBox alignment="CENTER" prefHeight="35.0" prefWidth="240.0" spacing="20.0">
+                  <HBox alignment="CENTER" prefHeight="19.0" prefWidth="260.0" spacing="20.0">
                      <children>
-                        <Button fx:id="addTaskButton" alignment="BOTTOM_LEFT" contentDisplay="CENTER" mnemonicParsing="false" onAction="#addTask" text="Dodaj" />
-                        <Button alignment="TOP_LEFT" contentDisplay="RIGHT" mnemonicParsing="false" onAction="#cancelAddingTask" text="Zamknij" />
+                        <Button fx:id="addTaskButton" alignment="BOTTOM_LEFT" contentDisplay="CENTER" mnemonicParsing="false" onAction="#addTask" styleClass="buttonTest" stylesheets="@style.css" text="Dodaj" />
+                        <Button alignment="TOP_LEFT" contentDisplay="RIGHT" mnemonicParsing="false" onAction="#cancelAddingTask" prefHeight="37.0" prefWidth="63.0" styleClass="buttonTest" stylesheets="@style.css" text="Zamknij" />
                      </children>
                   </HBox>
                </children>
@@ -363,8 +363,8 @@
                   <Label fx:id="errorMsg1" />
                   <HBox alignment="CENTER" prefHeight="35.0" prefWidth="240.0" spacing="20.0">
                      <children>
-                        <Button fx:id="editTaskButton" alignment="BOTTOM_LEFT" contentDisplay="CENTER" mnemonicParsing="false" onAction="#editTaskConfirm" text="Edytuj" />
-                        <Button alignment="TOP_LEFT" contentDisplay="RIGHT" mnemonicParsing="false" onAction="#cancelEditingTask" text="Zamknij" />
+                        <Button fx:id="editTaskButton" alignment="BOTTOM_LEFT" contentDisplay="CENTER" mnemonicParsing="false" onAction="#editTaskConfirm" styleClass="buttonTest" stylesheets="@style.css" text="Edytuj" />
+                        <Button alignment="TOP_LEFT" contentDisplay="RIGHT" mnemonicParsing="false" onAction="#cancelEditingTask" styleClass="buttonTest" stylesheets="@style.css" text="Zamknij" />
                      </children>
                   </HBox>
                </children>

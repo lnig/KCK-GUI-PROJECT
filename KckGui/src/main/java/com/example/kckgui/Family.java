@@ -1,5 +1,6 @@
 package com.example.kckgui;
 
+import com.example.kckgui.Controller.familyMemberController;
 import com.example.kckgui.Model.Class.familyMember;
 import io.github.palexdev.materialfx.controls.MFXTextField;
 import javafx.event.ActionEvent;
@@ -18,8 +19,6 @@ import java.util.List;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
-import static com.example.kckgui.HelloApplication.addMember;
-import static com.example.kckgui.HelloApplication.getMembers;
 
 public class Family implements Initializable {
 
@@ -33,8 +32,8 @@ public class Family implements Initializable {
     private MFXTextField textFieldNameFM;
     @FXML
     private AnchorPane content;
+    private ArrayList<familyMember> members = familyMemberController.getFamilyMembers();
 
-    private ArrayList<familyMember> members =  getMembers();
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -61,7 +60,6 @@ public class Family implements Initializable {
             clearFields();
             content.requestFocus();
         });
-
     }
 
     @FXML
@@ -103,7 +101,7 @@ public class Family implements Initializable {
            showAlert("Wypelnij Pola");
         }else{
             familyMember fM = new familyMember(fMName);
-            addMember(fM);
+            familyMemberController.addFamilyMember(fM);
             listView.getItems().add(fM);
         }
     }

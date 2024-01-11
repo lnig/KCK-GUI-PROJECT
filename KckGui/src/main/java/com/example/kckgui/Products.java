@@ -1,34 +1,25 @@
 package com.example.kckgui;
 
+import com.example.kckgui.Controller.productController;
 import com.example.kckgui.Model.Class.Product;
 import com.example.kckgui.Model.Type.measureType;
 import io.github.palexdev.materialfx.controls.MFXComboBox;
 import io.github.palexdev.materialfx.controls.MFXTextField;
-import io.github.palexdev.materialfx.enums.FloatMode;
-import javafx.beans.Observable;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
-import javafx.scene.control.*;
+import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.IllegalFormatConversionException;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
-import static com.example.kckgui.HelloApplication.addProduct;
-import static com.example.kckgui.HelloApplication.getList;
 
 
 public class Products implements Initializable {
@@ -62,7 +53,7 @@ public class Products implements Initializable {
     @FXML
     private AnchorPane contentArea;
 
-    private ArrayList<Product> products = getList();
+    private ArrayList<Product> products = productController.getProducts();
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -149,7 +140,7 @@ public class Products implements Initializable {
 
 
         Product product = new Product(name, category, price, measureType);
-        addProduct(product);
+        productController.addProduct(product);
 
         tableView.getItems().add(product);
         clearFields();

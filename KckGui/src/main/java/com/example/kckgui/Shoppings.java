@@ -1,5 +1,7 @@
 package com.example.kckgui;
 
+import com.example.kckgui.Controller.productController;
+import com.example.kckgui.Controller.shoppingController;
 import com.example.kckgui.Model.Class.Product;
 import com.example.kckgui.Model.Class.Shopping;
 import com.example.kckgui.Model.Class.Task;
@@ -36,8 +38,8 @@ public class Shoppings implements Initializable {
     private ListView<Shopping> listViewShopping;
     @FXML
     private GridPane gridPane;
-    private ArrayList<Product> products = getList();
-    private ArrayList<Shopping> shoppings = getShoppings();
+    private ArrayList<Product> products = productController.getProducts();
+    private ArrayList<Shopping> shoppings = shoppingController.getShopping();
     double sum = 0;
     int id = 0;
     int column = 0;
@@ -85,7 +87,7 @@ public class Shoppings implements Initializable {
             try {
                 int quantityValue = Integer.parseInt(quantity);
 
-                addShopping(new Shopping(product,quantityValue));
+                shoppingController.addShopping(new Shopping(product,quantityValue));
 
             } catch (NumberFormatException e) {
                 System.out.println("Wprowadzono nieprawidłową ilość!");
